@@ -53,21 +53,16 @@
     /// Enqueue the value provided into the queue
     /// </summary>
     /// <param name="value">Integer value to add to the queue</param>
-    private void Enqueue(int value) {
-        _queue.Insert(0, value);
-    }
+private void Enqueue(int value) {
+    _queue.Add(value);
+}
 
-    /// <summary>
-    /// Dequeue the next value and return it
-    /// </summary>
-    /// <exception cref="IndexOutOfRangeException">If queue is empty</exception>
-    /// <returns>First integer in the queue</returns>
-    private int Dequeue() {
-        if (_queue.Count <= 0)
-            throw new IndexOutOfRangeException();
+private int Dequeue() {
+    if (_queue.Count <= 0)
+        throw new IndexOutOfRangeException();
 
-        var value = _queue[1];
-        _queue.RemoveAt(1);
-        return value;
-    }
+    var value = _queue[0];
+    _queue.RemoveAt(0);
+    return value;
+}
 }
